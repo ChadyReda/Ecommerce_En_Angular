@@ -1,14 +1,13 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { CollectionItem } from '../../models/collection-item';
 
 @Component({
   imports: [],
   selector: 'app-collection-item-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './collection-item-card.html',
 })
+
 export class CollectionItemCard {
-  rarety = input('Legendary');
-  name = input('Charizard');
-  type = input('Dragon/Fire');
-  price = input(10.99);
-  image = input('/img/poke1.png');
+  item = input.required<CollectionItem>();
 }
